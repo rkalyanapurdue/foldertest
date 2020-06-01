@@ -26,7 +26,7 @@ jobs:
           fetch-depth: 0
       - name: Track Changes
         id: track-changes
-        uses: rkalyanapurdue/track-changes-docker-action@v5
+        uses: rkalyanapurdue/track-changes-docker-action@v6
       - name: Output Folders
         run: echo "Folders changed ${{ steps.track-changes.outputs.folders }}"
       
