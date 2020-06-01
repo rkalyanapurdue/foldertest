@@ -19,13 +19,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      - name: Track Changes
+        id: track-changes
+        uses: actions/track-changes-docker-action
       
-    - name: Query changed filed
-      run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
-
-    - name: Get Changed Files
-      uses: lots0logs/gh-action-get-changed-files@2.0.6
-      with:
-        token: GITHUB_ACCESS_TOKEN
