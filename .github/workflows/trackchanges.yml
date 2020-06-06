@@ -33,8 +33,8 @@ jobs:
         env:
           FOLDERS: steps.track-changes.outputs.folders
         run: |
-          for folder in $FOLDERS; do
-             cd $folder
-             ls
+          echo $FOLDERS
+          echo ${{ steps.track-changes.outputs.folders }}
+          for folder in ${{ steps.track-changes.outputs.folders }}; do
+              echo $folder
           done
-      
