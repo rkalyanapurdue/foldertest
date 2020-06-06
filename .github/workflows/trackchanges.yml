@@ -26,15 +26,13 @@ jobs:
           fetch-depth: 0
       - name: Track Changes
         id: track-changes
-        uses: rkalyanapurdue/track-changes-docker-action@v6
+        uses: rkalyanapurdue/track-changes-docker-action@v7
       - name: Output Folders
         run: echo "Folders changed ${{ steps.track-changes.outputs.folders }}"
       - name: Loop
-        env:
-          FOLDERS: steps.track-changes.outputs.folders
         run: |
-          echo $FOLDERS
-          echo ${{ steps.track-changes.outputs.folders }}
           for folder in ${{ steps.track-changes.outputs.folders }}; do
               echo $folder
+              cd $folder
+              ls
           done
