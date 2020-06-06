@@ -31,8 +31,9 @@ jobs:
         run: echo "Folders changed ${{ steps.track-changes.outputs.folders }}"
       - name: Loop
         run: |
+          dir=$(pwd)
           for folder in ${{ steps.track-changes.outputs.folders }}; do
-              echo $folder
-              cd $folder
+              echo "Folder $folder contents:"
+              cd $dir/$folder
               ls
           done
